@@ -1,0 +1,3 @@
+coverage/
+*.zip
+.vscode/settings.json
