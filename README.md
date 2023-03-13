@@ -1,4 +1,4 @@
-# Moodle modification to support and external thumbnail images on courses
+# Moodle modification to support an external thumbnail images on courses
 
 A modification to allow course thumbnail images to be delivered from a URL external to Moodle, for example from a CDN.
 
