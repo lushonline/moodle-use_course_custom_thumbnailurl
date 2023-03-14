@@ -14,7 +14,7 @@ The URL is configured as a [Course Custom Field](https://docs.moodle.org/39/en/C
 
 To use this plugin you will need:
 
-1. You must add a [Course Custom Field](https://docs.moodle.org/39/en/Course_settings#Course_custom_fields) with a shortname **thumbnailurl**
+1. You must add a [Course Custom Field](https://docs.moodle.org/39/en/Course_settings#Course_custom_fields) with a shortname **thumbnailurl**, type of **short text**, you can add this to any Custom Field category. If you wish to hide this custom field from things like the course listing you can set **visible to** to Noboby.
 1. You must populate this field with an absolute URL to the thumbnail image.
 
 ## Installation
@@ -56,4 +56,3 @@ PARTICULAR PURPOSE. See the GNU General Public License for more details.
 
 You should have received a copy of the GNU General Public License along with
 this program. If not, see <http://www.gnu.org/licenses/>.
-

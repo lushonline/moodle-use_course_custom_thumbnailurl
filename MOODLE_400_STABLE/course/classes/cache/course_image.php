@@ -98,9 +98,10 @@ class course_image implements cache_data_source {
      * @return null|string Image URL or null if it's not exists.
      */
     protected function get_image_url_from_customfield(\stdClass $course): ?string {
-        $courseinlist = new core_course_list_element($course);
+        // Always retrieve all fields, this allows visibility of custom field to be ignore.
+        $fields = \core_course\customfield\course_handler::create()->get_instance_data($course->id, true);
         $result = null;
-        foreach ($courseinlist->get_custom_fields() as $field) {
+        foreach ($fields as $field) {
             if ($field->get_field()->get('shortname') == 'thumbnailurl') {
                 $value = $field->get_value();
                 if (!empty($value)) {
