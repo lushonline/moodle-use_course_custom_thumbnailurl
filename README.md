@@ -1,4 +1,4 @@
-# Moodle modification to support and external thumbnail images on courses
+# Moodle modification to support an external thumbnail images on courses
 
 A modification to allow course thumbnail images to be delivered from a URL external to Moodle, for example from a CDN.
 
@@ -28,18 +28,22 @@ The modification works by updating the logic that retrieves the course thumbnail
 
 ### MOODLE_39_STABLE
 
-The [/course/classes/external/course_summary_exporter.php](https://github.com/moodle/moodle/blob/MOODLE_39_STABLE/course/classes/external/course_summary_exporter.php) is modified.
+The original [/course/classes/external/course_summary_exporter.php](https://github.com/moodle/moodle/blob/MOODLE_39_STABLE/course/classes/external/course_summary_exporter.php) is modified.
 
-The [get_course_image function](https://github.com/moodle/moodle/blob/MOODLE_39_STABLE/course/classes/external/course_summary_exporter.php#L170) is modified so it calls to new private funtions.
+The get_course_image() function is modified so it calls two new private funtions.
 
 1. get_image_url_from_overview_files - This function checks if a course overview image was uploaded, and if it was it uses this.
 1. get_image_url_from_customfield - This function is called if get_image_url_from_overview_files returns null, this looks for the custom field and if populated returns this url.
 
+The modification is here [/course/classes/external/course_summary_exporter.php](https://github.com/lushonline/moodle-use_course_custom_thumbnailurl/blob/main/MOODLE_39_STABLE/course/classes/external/course_summary_exporter.php#L221) 
+
 ### MOODLE_311_STABLE and later
 
-These versions of Moodle introduce a cache lookup of the courseimage, so we modified the [/course/classes/cache/course_image.php](https://github.com/moodle/moodle/blob/MOODLE_311_STABLE/course/classes/cache/course_image.php)
+These versions of Moodle introduce a cache lookup of the courseimage, so we modified the original [/course/classes/cache/course_image.php](https://github.com/moodle/moodle/blob/MOODLE_311_STABLE/course/classes/cache/course_image.php)
 
-The [load_for_cache function](https://github.com/moodle/moodle/blob/MOODLE_311_STABLE/course/classes/cache/course_image.php#L58) is modified to use the same logic as for Moodle 3.9
+The load_for_cache() function is modified to use the same logic as for Moodle 3.9.
+
+The modification is here [/course/classes/cache/course_image.php](https://github.com/lushonline/moodle-use_course_custom_thumbnailurl/blob/main/MOODLE_311_STABLE/course/classes/cache/course_image.php#L58)
 
 ## License
 
